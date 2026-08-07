@@ -1,0 +1,8 @@
+{
+  "name": "منچ",
+  "short_name": "منچ",
+  "start_url": "/ludo-game/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#8b5cf6"
+}
