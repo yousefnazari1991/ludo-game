@@ -2,7 +2,14 @@
 <html lang="fa" dir="rtl">  
 <head>  
   <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">  
+    <!-- مخفی کردن آدرس بار و حالت تمام‌صفحه -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="منچ">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="منچ">
+<meta name="theme-color" content="#0f172a">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>منچ | Ludo Professional</title> 
   <link rel="manifest" href="manifest.json">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,6 +21,14 @@
       font-family: 'Vazirmatn', 'Segoe UI', system-ui, -apple-system, sans-serif;  
       padding: 15px; margin: 0; direction: rtl;  
     }  
+    /* پوشش ناچ گوشی و حالت تمام‌صفحه */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
     .game-wrapper {  
       background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(24px);  
       -webkit-backdrop-filter: blur(24px); border-radius: 48px; padding: 20px;  
@@ -626,7 +641,7 @@
   </style>  
 </head>  
 <body>  
-
+<button onclick="goFullscreen()" style="position:fixed;bottom:10px;left:10px;z-index:999;opacity:0.5;padding:5px;font-size:10px;">⛶</button>
 <!-- منوی همبرگری -->
 <div class="hamburger-container" id="hamburgerContainer">
   <div class="hamburger-btn" id="hamburgerBtn" onclick="toggleHamburgerMenu()">
@@ -2434,6 +2449,26 @@ async function computerTurn() {
       );
     });
   }
+  function goFullscreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  }
+  }
+  // مخفی کردن آدرس بار در اندروید
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.scrollTo(0, 1);
+  }, 0);
+});
+
+// جلوگیری از pull-to-refresh
+document.addEventListener('touchmove', function(e) {
+  if (e.target === document.body) {
+    e.preventDefault();
+  }
+}, { passive: false });
 </script>
 </body>  
   </html>
