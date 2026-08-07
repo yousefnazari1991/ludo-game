@@ -4,11 +4,13 @@
   "description": "بازی منچ حرفه‌ای با گرافیک سه بعدی، تاس چرخان، قابلیت بازی با کامپیوتر و دوستان",
   "start_url": "/ludo-game/",
   "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
   "background_color": "#0f172a",
-  "theme_color": "#8b5cf6",
+  "theme_color": "#0f172a",
   "orientation": "portrait",
   "lang": "fa-IR",
   "dir": "rtl",
+  "scope": "/ludo-game/",
   "icons": [
     {
       "src": "icon-192.png",
@@ -24,6 +26,5 @@
     }
   ],
   "categories": ["games", "entertainment"],
-  "screenshots": [],
   "prefer_related_applications": false
 }
